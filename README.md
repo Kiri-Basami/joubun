@@ -6,7 +6,7 @@
 joubun.styに必須です。
 
 # 使い方
-[Qiitaの記事](https://qiita.com/puripuri2100/items/b094118849d6ae7b3a9e)を少し読んでみてください（今後付け加えていく予定）。
+基本的には、puripuri2100様の[Qiitaの記事](https://qiita.com/puripuri2100/items/b094118849d6ae7b3a9e)を少し読んでみてください（今後付け加えていく予定）。
 
 # 依存パッケージ
 前述のjcounter.styの他、enumitemパッケージと、ifthenパッケージ（ifxetex,ifluatex,ifuptex含む）が必要です。
