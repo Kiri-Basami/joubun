@@ -55,15 +55,18 @@
 
 %------------------jou
 \newcounter{jou}
-\setcounter{jou}{0}
+% delete\setcounter{jou}{0}
 \newcommand{\@thejou}{\jkansuji\thejou}
-\newcommand{\jou}[2][]{\par\vskip 1\myzw\noindent#1%[\vskip -2\myzw]{\par\vskip 1\myzw\noindent\hspace{2.5\myzw} #1%
-\refstepcounter{jou}%
-\begin{description}[leftmargin=0\myzw,labelsep=1\myzw,itemindent=0\myzw,font=\mcfamily,nosep]
-\item[第{\@thejou}条] #2
-\end{description}
-\setcounter{kou}{1}
-\setcounter{edajou}{1}}
+\newcommand{\jou}[2][]{\par \vskip 0.5\myzw%
+  \ifblank{#1}{}{%
+    {\bizudgb（#1）}\par%
+  }%
+  \par\refstepcounter{jou}%
+  \noindent\hangafter=1\hangindent=1\myzw%
+  {\bizudgb 第{\@thejou}条\hskip1\myzw}#2%
+  \setcounter{kou}{1}%
+  \setcounter{edajou}{1}%
+}
 
 %------------------kou
 
