@@ -20,6 +20,17 @@
   \newcommand*{\myzw}{zw}
 }}}
 
+\ifxetex
+  \newcommand*{\myzw}{\zw}
+\else\ifluatex
+  \newcommand*{\myzw}{\zw}
+  \RequirePackage{luatexja-fontspec}
+  \newjfontfamily{\bizudgb}{BIZ-UDGothicB.ttc}
+\else % (u)pLaTeX
+  \newcommand*{\myzw}{zw}
+  \newcommand*{\bizudgb}{}
+\fi\fi
+
 %------------------hen
 \newcounter{hen}
 \setcounter{hen}{0}
