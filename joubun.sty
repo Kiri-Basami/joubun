@@ -87,93 +87,92 @@
 }
 
 %------------------kou
-
 \newcounter{kou}[jou]
 \newcommand{\@thekou}{\jzenkakusuji\thekou}
-\newcommand{\kou}[1]{
-\refstepcounter{kou}
-\begin{description}[leftmargin=0\zw,labelsep=1\zw,itemindent=0\zw,font=\mcfamily,nosep]
-\item[\@thekou] #1
-\end{description}
-\setcounter{edakou}{1}}
+\newcommand{\kou}[1]{%
+\par\refstepcounter{kou}%
+\noindent\hangafter=1\hangindent=1\myzw%
+{\bizudgb {\@thekou}}\hskip 1\myzw #1%
+\setcounter{edakou}{1}%
+}
 
 %------------------gou
-
 \newcounter{gou}[jou]
 \newcommand{\@thegou}{\jkansuji\thegou}
-\newcommand{\gou}[1]{
-{\refstepcounter{gou}}
-\begin{description}[leftmargin=1\zw,labelsep=1\zw,itemindent=0\zw,font=\mcfamily,nosep]
-\item[\@thegou] #1
-\end{description}
-\setcounter{edagou}{1}}
+\newcommand{\gou}[1]{%
+\par\refstepcounter{gou}%
+\hangafter=1\hangindent=2\myzw%
+{\bizudgb{\@thegou}}\hskip 1\myzw #1%
+\setcounter{edagou}{1}%
+}
+
 %--------------------------------edabangou
 %------------------edajou
 \newcounter{edajou}[jou]
-\setcounter{edajou}{1}
+% delete\setcounter{edajou}{1}
 \newcommand{\@theedajou}{\jkansuji\theedajou}
+\newcommand{\edajou}[2][]{\par\vskip 0.5\myzw%
+  \ifblank{#1}{}{%
+    {\bizudgb（#1）}\par%
+  }%
+  \par\refstepcounter{edajou}%
+  \noindent\hangafter=1\hangindent=1\myzw%
+  {\bizudgb 第{\@thejou}条の{\@theedajou}}\hskip 1\myzw #2%
+}
 
-\newcommand{\edajou}[2][]{\par\vskip 1\myzw\noindent #1%
-\refstepcounter{edajou}%
-\begin{description}[leftmargin=0\myzw,labelsep=1\myzw,itemindent=0\myzw,font=\mcfamily,nosep]
-\item[第{\@thejou}条の\@theedajou] #2
-\end{description}}
 %------------------edahen
 \newcounter{edahen}[hen]
-\setcounter{edahen}{1}
+% delete\setcounter{edahen}{1}
 \newcommand{\@theedahen}{\jkansuji\theedahen}
-\newcommand{\edahen}[1]{\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thehen}編の\@theedahen%
-\hspace{1\myzw}\refstepcounter{edahen}{#1}}\vskip1\myzw}
+\newcommand{\edahen}[1]{\refstepcounter{edahen}\par
+\vskip1\myzw\noindent{\hspace{2\myzw}第{\@thehen}編の\@theedahen\hskip1\myzw{#1}}}
 
 %------------------edasyou
 \newcounter{edasyou}[syou]
-\setcounter{edasyou}{1}
-\newcommand{\@theedasyou}{\jkansuji\theedasyou
-}
-\newcommand{\edasyou}[1]{\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thesyou}編の\@theedasyou%
-\hspace{1\myzw}\refstepcounter{edasyou}{#1}}\vskip1\myzw}
+% delete\setcounter{edasyou}{1}
+\newcommand{\@theedasyou}{\jkansuji\theedasyou}
+\newcommand{\edasyou}[1]{\refstepcounter{edasyou}\par
+\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章の\@theedasyou\hskip 1\myzw{#1}}}
 
 %------------------edasetu
 \newcounter{edasetu}[setu]
-\setcounter{edasetu}{1}
+% delete\setcounter{edasetu}{1}
 \newcommand{\@theedasetu}{\jkansuji\theedasetu}
-\newcommand{\edasetu}[1]{\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thesetu}編の\@theedasetu%
-\hspace{1\myzw}\refstepcounter{edasetu}{#1}}\vskip1\myzw}
+\newcommand{\edasetu}[1]{\refstepcounter{edasetu}\par
+\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節の\@theedasetu\hskip 1\myzw{#1}}
+}
 
 %------------------edakan
 \newcounter{edakan}[kan]
-\setcounter{edakan}{1}
+% delete\setcounter{edakan}{1}
 \newcommand{\@theedakan}{\jkansuji\theedakan}
-\newcommand{\edakan}[1]{\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thekan}編の\@theedakan%
-\hspace{1\myzw}\refstepcounter{edakan}{#1}}\vskip1\myzw}
+\newcommand{\edakan}[1]{\refstepcounter{edakan}\par
+\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thekan}款の\@theedakan\hskip 1\myzw{#1}}}
 
 %------------------edamoku
 \newcounter{edamoku}[moku]
-\setcounter{edamoku}{1}
+% delete\setcounter{edamoku}{1}
 \newcommand{\@theedamoku}{\jkansuji\theedamoku}
-\newcommand{\edamoku}[1]{\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@themoku}編の\@theedamoku%
-\hspace{1\myzw}\refstepcounter{edamoku}{#1}}\vskip1\myzw}
+\newcommand{\edamoku}[1]{\refstepcounter{edamoku}\par
+\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目の\@theedamoku\hskip 1\myzw{#1}}}
 
 %------------------edakou
-
-\newcounter{edakou}[jou]
-\newcommand{\@theedakou}{\jkakusuji\theedakou}
+\newcounter{edakou}[kou]
+\newcommand{\@theedakou}{\jzenkakusuji\theedakou}
 \newcommand{\edakou}[1]{%
-\refstepcounter{edakou}
-\begin{description}[leftmargin=0\zw,labelsep=1\zw,itemindent=0\zw,font=\mcfamily,nosep]
-\item[{\@thekou}の\@theedakou] #1
-\end{description}}
+\par\refstepcounter{edakou}%
+\noindent\hangafter=1\hangindent=1\myzw%
+{\bizudgb {\@thekou}の{\@theedakou}}\hskip 1\myzw #1%
+}
 
 %------------------edagou
-
-\newcounter{edagou}[jou]
+\newcounter{edagou}[gou]
 \newcommand{\@theedagou}{\jkansuji\theedagou}
-\newcommand{\edagou}[1]{
-{\refstepcounter{edagou}}
-\begin{description}[leftmargin=1\zw,labelsep=1\zw,itemindent=0\zw,font=\mcfamily,nosep]
-\item[\@thegouの\@theedagou] #1
-\end{description}
-\setcounter{edagou}{1}}
+\newcommand{\edagou}[1]{%
+\par\refstepcounter{edagou}%
+\hangafter=1\hangindent=1\myzw%
+{\bizudgb {\@thegou}の{\@theedagou}}\hskip 1\myzw #1%
+}
 
 %--------------------------------sakujo
 \newcommand{\sakujo}[1]{%
