@@ -1,4 +1,4 @@
-\ProvidesPackage{joubun}[2018/02/07]
+\ProvidesPackage{joubun}[2026/06/17]
 \NeedsTeXFormat{LaTeX2e}
 \RequirePackage{jcounter}
 \RequirePackage{enumitem}
@@ -6,19 +6,19 @@
 \RequirePackage{ifxetex,ifluatex,ifluatex}
 \RequirePackage{etoolbox}
 
-\ifthenelse{\boolean{xetex}}{
+% %\ifthenelse{\boolean{xetex}}{
   % XeLaTeXでは\zw
-  \newcommand*{\myzw}{\zw}
-}{\ifthenelse{\boolean{luatex}}{
+%  \newcommand*{\myzw}{\zw}
+% }{\ifthenelse{\boolean{luatex}}{
   % LuaLaTeXでは\zw
-  \newcommand*{\myzw}{\zw}
-}{\ifthenelse{\boolean{upTeX}}{
+%  \newcommand*{\myzw}{\zw}
+% }{\ifthenelse{\boolean{upTeX}}{
   % upLaTeXではzw
-  \newcommand*{\myzw}{zw}
-}{%else (pLaTeXと仮定する)
+%  \newcommand*{\myzw}{zw}
+% }{%else (pLaTeXと仮定する)
   % pLaTeXではzw
-  \newcommand*{\myzw}{zw}
-}}}
+%  \newcommand*{\myzw}{zw}
+%}}}
 
 \ifxetex
   \newcommand*{\myzw}{\zw}
@@ -177,6 +177,40 @@
 %--------------------------------sakujo
 \newcommand{\sakujo}[1]{%
 \refstepcounter{#1}\par}
+
+%--------------------------------sakujotext
+\newcommand{\sakujotext}[3][]{%
+\par
+%---\vskip
+\ifstrequal{#1}{jou}{\vskip 0.5\myzw}{%
+\ifstrequal{#1}{edajou}{\vskip 0.5\myzw}{%
+\ifstrequal{#1}{kou}{}{%
+\ifstrequal{#1}{edakou}{}{%
+\ifstrequal{#1}{gou}{}{%
+\ifstrequal{#1}{edagou}{}{%
+  \vskip 1\myzw
+}}}}}}%
+\noindent
+%---\hspace
+\ifstrequal{#1}{jou}{{\bizudgb #2}}{%
+\ifstrequal{#1}{edajou}{{\bizudgb #2}}{%
+\ifstrequal{#1}{kou}{{\bizudgb #2}}{%
+\ifstrequal{#1}{edakou}{{\bizudgb #2}}{%
+\ifstrequal{#1}{gou}{\hspace{1\myzw}{\bizudgb #2}}{%
+\ifstrequal{#1}{edagou}{\hspace{1\myzw}{\bizudgb #2}}{%
+\ifstrequal{#1}{hen}{\hspace{2\myzw}#2}{%
+\ifstrequal{#1}{edahen}{\hspace{2\myzw}#2}{%
+\ifstrequal{#1}{syou}{\hspace{3\myzw}#2}{%
+\ifstrequal{#1}{edasyou}{\hspace{3\myzw}#2}{%
+\ifstrequal{#1}{setu}{\hspace{4\myzw}#2}{%
+\ifstrequal{#1}{edasetu}{\hspace{4\myzw}#2}{%
+\ifstrequal{#1}{kan}{\hspace{5\myzw}#2}{%
+\ifstrequal{#1}{edakan}{\hspace{5\myzw}#2}{%
+\ifstrequal{#1}{moku}{\hspace{6\myzw}#2}{%
+\ifstrequal{#1}{edamoku}{\hspace{6\myzw}#2}{%
+}}}}}}}}}}}}}}}}%
+\hskip 1\myzw #3\par
+}
 
 %--------------------------------husoku
 \newenvironment{husoku}{\setcounter{kou}{0}\setcounter{jou}{0}\begingroup\par \noindent \vskip 1\myzw {\hspace{0\myzw}附則}\par }
