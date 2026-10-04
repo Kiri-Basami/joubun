@@ -33,38 +33,43 @@
 
 %------------------hen
 \newcounter{hen}
-\setcounter{hen}{0}
+% delete\setcounter{hen}{0}
 \newcommand{\@thehen}{\jkansuji\thehen}
-\newcommand{\hen}[1]{\refstepcounter{hen}\par\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thehen}編\hspace{1\myzw}{#1}}
-\setcounter{edahen}{1}\par}
+\newcommand{\hen}[1]{\refstepcounter{hen}\par
+\vskip1\myzw\noindent{\hspace{2\myzw}第{\@thehen}編\hskip 1\myzw{#1}}
+\setcounter{edahen}{1}}
 
 %------------------syou
 \newcounter{syou}[hen]
-\setcounter{syou}{1}
+% delete\setcounter{syou}{1}
 \newcommand{\@thesyou}{\jkansuji\thesyou}
-\newcommand{\syou}[1]{\refstepcounter{syou}\par\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesyou}章\hspace{1\myzw}{#1}}
-\setcounter{edasyou}{1}\par}
+\newcommand{\syou}[1]{\refstepcounter{syou}\par
+\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章\hskip 1\myzw{#1}}
+\setcounter{edasyou}{1}}
 
 %------------------setu
 \newcounter{setu}[syou]
-\setcounter{setu}{1}
+% delete\setcounter{setu}{1}
 \newcommand{\@thesetu}{\jkansuji\thesetu}
-\newcommand{\setu}[1]{\refstepcounter{setu}\par\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesetu}節\hspace{1\myzw}{#1}}
-\setcounter{edasetu}{1}\par}
+\newcommand{\setu}[1]{\refstepcounter{setu}\par
+\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節\hskip 1\myzw{#1}}
+\setcounter{edasetu}{1}}
 
 %------------------kan
 \newcounter{kan}[setu]
-\setcounter{kan}{1}
+% delete\setcounter{kan}{1}
 \newcommand{\@thekan}{\jkansuji\thekan}
-\newcommand{\kan}[1]{\refstepcounter{kan}\par\vskip1\myzw\noindent {\hspace{2\myzw}第{\@thekan}款\hspace{1\myzw}{#1}}
-\setcounter{edakan}{1}\par}
+\newcommand{\kan}[1]{\refstepcounter{kan}\par
+\vskip1\myzw\noindent {\hspace{5\myzw}第{\@thekan}款\hskip 1\myzw{#1}}
+\setcounter{edakan}{1}}
 
 %------------------moku
 \newcounter{moku}[kan]
-\setcounter{moku}{1}
+% delete\setcounter{moku}{1}
 \newcommand{\@themoku}{\jkansuji\themoku}
-\newcommand{\moku}[1]{\refstepcounter{moku}\par\vskip1\myzw\noindent{\hspace{1\myzw}第{\@themoku}目\hspace{1\myzw}{#1}}
-\setcounter{edamoku}{1}\par}
+\newcommand{\moku}[1]{\refstepcounter{moku}\par
+\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目\hskip 1\myzw{#1}}
+\setcounter{edamoku}{1}}
 
 %------------------jou
 \newcounter{jou}
