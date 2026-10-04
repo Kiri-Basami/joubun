@@ -4,6 +4,8 @@
 \RequirePackage{enumitem}
 \RequirePackage{ifthen}
 \RequirePackage{ifxetex,ifluatex,ifluatex}
+\RequirePackage{etoolbox}
+
 \ifthenelse{\boolean{xetex}}{
   % XeLaTeXでは\zw
   \newcommand*{\myzw}{\zw}
