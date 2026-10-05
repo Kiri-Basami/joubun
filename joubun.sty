@@ -22,7 +22,7 @@
 \ifxetex
   \newcommand*{\myzw}{\zw}
 \else\ifluatex
-  \newcommand*{\myzw}{\zw}}
+  \newcommand*{\myzw}{\zw}
 \else % (u)pLaTeX
   \newcommand*{\myzw}{zw}
 \fi\fi
@@ -165,7 +165,7 @@
 \newcommand{\@theedamoku}{\jkansuji\theedamoku}
 \newcommand{\edamoku}[1]{\refstepcounter{edamoku}\par
 \vskip1\myzw\noindent%
-{\provisionfont\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}\hskip 1\myzw{#1}
+{\provisionfont\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}}\hskip 1\myzw{#1}
 }
 
 %------------------edakou
@@ -196,7 +196,7 @@
   }%
   \par\refstepcounter{edaIIjou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\provisionfont 第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}\hskip 1\myzw #2%
+  {\provisionfont 第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}}\hskip 1\myzw #2%
 }
 
 %------------------枝の枝章
@@ -254,7 +254,7 @@
   }%
   \par\refstepcounter{edaIIIjou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\provisionfont第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}の{\@theedaIIIjou}\hskip 1\myzw #2%
+  {\provisionfont第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}の{\@theedaIIIjou}}\hskip 1\myzw #2%
 }
 
 %------------------枝の枝の枝章
