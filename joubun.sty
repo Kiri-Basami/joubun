@@ -22,20 +22,20 @@
 \ifxetex
   \newcommand*{\myzw}{\zw}
 \else\ifluatex
-  \newcommand*{\myzw}{\zw}
-  \RequirePackage{luatexja-fontspec}
-  \newjfontfamily{\bizudgb}{BIZ-UDGothicB.ttc}
+  \newcommand*{\myzw}{\zw}}
 \else % (u)pLaTeX
   \newcommand*{\myzw}{zw}
-  \newcommand*{\bizudgb}{}
 \fi\fi
+
+\newcommand*{\provisionfont}{bfseries\sffamily}
 
 %------------------hen
 \newcounter{hen}
 % delete\setcounter{hen}{0}
 \newcommand{\@thehen}{\jkansuji\thehen}
 \newcommand{\hen}[1]{\refstepcounter{hen}\par
-\vskip1\myzw\noindent{\hspace{2\myzw}第{\@thehen}編\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{2\myzw}第{\@thehen}編}\hskip 1\myzw{#1}
 \setcounter{edahen}{1}}
 
 %------------------syou
@@ -43,7 +43,8 @@
 % delete\setcounter{syou}{1}
 \newcommand{\@thesyou}{\jkansuji\thesyou}
 \newcommand{\syou}[1]{\refstepcounter{syou}\par
-\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{3\myzw}第{\@thesyou}章}\hskip 1\myzw{#1}
 \setcounter{edasyou}{1}}
 
 %------------------setu
@@ -51,7 +52,8 @@
 % delete\setcounter{setu}{1}
 \newcommand{\@thesetu}{\jkansuji\thesetu}
 \newcommand{\setu}[1]{\refstepcounter{setu}\par
-\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{4\myzw}第{\@thesetu}節}\hskip 1\myzw{#1}
 \setcounter{edasetu}{1}}
 
 %------------------kan
@@ -59,7 +61,8 @@
 % delete\setcounter{kan}{1}
 \newcommand{\@thekan}{\jkansuji\thekan}
 \newcommand{\kan}[1]{\refstepcounter{kan}\par
-\vskip1\myzw\noindent {\hspace{5\myzw}第{\@thekan}款\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{5\myzw}第{\@thekan}款}\hskip 1\myzw{#1}
 \setcounter{edakan}{1}}
 
 %------------------moku
@@ -67,7 +70,8 @@
 % delete\setcounter{moku}{1}
 \newcommand{\@themoku}{\jkansuji\themoku}
 \newcommand{\moku}[1]{\refstepcounter{moku}\par
-\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{6\myzw}第{\@themoku}目}\hskip 1\myzw{#1}
 \setcounter{edamoku}{1}}
 
 %------------------jou
@@ -76,11 +80,11 @@
 \newcommand{\@thejou}{\jkansuji\thejou}
 \newcommand{\jou}[2][]{\par \vskip 0.5\myzw%
   \ifblank{#1}{}{%
-    {\bizudgb（#1）}\par%
+    （#1）\par%
   }%
   \par\refstepcounter{jou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\bizudgb 第{\@thejou}条\hskip1\myzw}#2%
+  {\provisionfont 第{\@thejou}条\hskip1\myzw}#2%
   \setcounter{kou}{1}%
   \setcounter{edajou}{1}%
 }
@@ -91,7 +95,7 @@
 \newcommand{\kou}[1]{%
 \par\refstepcounter{kou}%
 \noindent\hangafter=1\hangindent=1\myzw%
-{\bizudgb {\@thekou}}\hskip 1\myzw #1%
+{\@thekou}\hskip 1\myzw #1%
 \setcounter{edakou}{1}%
 }
 
@@ -101,7 +105,7 @@
 \newcommand{\gou}[1]{%
 \par\refstepcounter{gou}%
 \hangafter=1\hangindent=2\myzw%
-{\bizudgb{\@thegou}}\hskip 1\myzw #1%
+{\@thegou}\hskip 1\myzw #1%
 \setcounter{edagou}{1}%
 }
 
@@ -112,11 +116,11 @@
 \newcommand{\@theedajou}{\jkansuji\theedajou}
 \newcommand{\edajou}[2][]{\par\vskip 0.5\myzw%
   \ifblank{#1}{}{%
-    {\bizudgb（#1）}\par%
+    （#1）\par%
   }%
   \par\refstepcounter{edajou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\bizudgb 第{\@thejou}条の{\@theedajou}}\hskip 1\myzw #2%
+  {\provisionfont 第{\@thejou}条の{\@theedajou}}\hskip 1\myzw #2%
 }
 
 %------------------edahen
@@ -124,7 +128,8 @@
 % delete\setcounter{edahen}{1}
 \newcommand{\@theedahen}{\jkansuji\theedahen}
 \newcommand{\edahen}[1]{\refstepcounter{edahen}\par
-\vskip1\myzw\noindent{\hspace{2\myzw}第{\@thehen}編の\@theedahen\hskip1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{2\myzw}第{\@thehen}編の{\@theedahen}}\hskip1\myzw{#1}
 }
 
 %------------------edasyou
@@ -132,7 +137,8 @@
 % delete\setcounter{edasyou}{1}
 \newcommand{\@theedasyou}{\jkansuji\theedasyou}
 \newcommand{\edasyou}[1]{\refstepcounter{edasyou}\par
-\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章の\@theedasyou\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{3\myzw}第{\@thesyou}章の{\@theedasyou}}\hskip 1\myzw{#1}
 }
 
 %------------------edasetu
@@ -140,7 +146,8 @@
 % delete\setcounter{edasetu}{1}
 \newcommand{\@theedasetu}{\jkansuji\theedasetu}
 \newcommand{\edasetu}[1]{\refstepcounter{edasetu}\par
-\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節の\@theedasetu\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{4\myzw}第{\@thesetu}節の{\@theedasetu}}\hskip 1\myzw{#1}
 }
 
 %------------------edakan
@@ -148,7 +155,8 @@
 % delete\setcounter{edakan}{1}
 \newcommand{\@theedakan}{\jkansuji\theedakan}
 \newcommand{\edakan}[1]{\refstepcounter{edakan}\par
-\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thekan}款の\@theedakan\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{5\myzw}第{\@thekan}款の{\@theedakan}}\hskip 1\myzw{#1}
 }
 
 %------------------edamoku
@@ -156,7 +164,8 @@
 % delete\setcounter{edamoku}{1}
 \newcommand{\@theedamoku}{\jkansuji\theedamoku}
 \newcommand{\edamoku}[1]{\refstepcounter{edamoku}\par
-\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目の\@theedamoku\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}\hskip 1\myzw{#1}
 }
 
 %------------------edakou
@@ -165,7 +174,7 @@
 \newcommand{\edakou}[1]{%
 \par\refstepcounter{edakou}%
 \noindent\hangafter=1\hangindent=1\myzw%
-{\bizudgb {\@thekou}の{\@theedakou}}\hskip 1\myzw #1%
+{\@thekou}の{\@theedakou}\hskip 1\myzw #1%
 }
 
 %------------------edagou
@@ -174,7 +183,7 @@
 \newcommand{\edagou}[1]{%
 \par\refstepcounter{edagou}%
 \hangafter=1\hangindent=1\myzw%
-{\bizudgb {\@thegou}の{\@theedagou}}\hskip 1\myzw #1%
+{\@thegou}の{\@theedagou}\hskip 1\myzw #1%
 }
 
 %--------------------------------枝の枝番号
@@ -183,11 +192,11 @@
 \newcommand{\@theedaIIjou}{\jkansuji\theedaIIjou}
 \newcommand{\edaIIjou}[2][]{\par\vskip 0.5\myzw%
   \ifblank{#1}{}{%
-    {\bizudgb（#1）}\par%
+    （#1）\par%
   }%
   \par\refstepcounter{edaIIjou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\bizudgb 第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}\hskip 1\myzw #2%
+  {\provisionfont 第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}\hskip 1\myzw #2%
 }
 
 %------------------枝の枝章
@@ -195,7 +204,8 @@
 % delete\setcounter{edaIIsyou}{1}
 \newcommand{\@theedaIIsyou}{\jkansuji\theedaIIsyou}
 \newcommand{\edaIIsyou}[1]{\refstepcounter{edaIIsyou}\par
-\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章の{\@theedasyou}の{\@theedaIIsyou}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{3\myzw}第{\@thesyou}章の{\@theedasyou}の{\@theedaIIsyou}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝節
@@ -203,7 +213,8 @@
 % delete\setcounter{edaIIsetu}{1}
 \newcommand{\@theedaIIsetu}{\jkansuji\theedaIIsetu}
 \newcommand{\edaIIsetu}[1]{\refstepcounter{edaIIsetu}\par
-\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節の{\@theedasetu}の{\@theedaIIsetu}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{4\myzw}第{\@thesetu}節の{\@theedasetu}の{\@theedaIIsetu}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝款
@@ -211,7 +222,8 @@
 % delete\setcounter{edaIIkan}{1}
 \newcommand{\@theedaIIkan}{\jkansuji\theedaIIkan}
 \newcommand{\edaIIkan}[1]{\refstepcounter{edaIIkan}\par
-\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thekan}款の{\@theedakan}の{\@theedaIIkan}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{5\myzw}第{\@thekan}款の{\@theedakan}の{\@theedaIIkan}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝目
@@ -219,7 +231,8 @@
 % delete\setcounter{edaIImoku}{1}
 \newcommand{\@theedaIImoku}{\jkansuji\theedaIImoku}
 \newcommand{\edaIImoku}[1]{\refstepcounter{edaIImoku}\par
-\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}の{\@theedaIImoku}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}の{\@theedaIImoku}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝号
@@ -228,7 +241,7 @@
 \newcommand{\edaIIgou}[1]{%
 \par\refstepcounter{edaIIgou}%
 \hangafter=1\hangindent=1\myzw%
-{\bizudgb {\@thegou}の{\@theedagou}の{\@theedaIIgou}\hskip 1\myzw #1%
+{\@thegou}の{\@theedagou}の{\@theedaIIgou}\hskip 1\myzw #1%
 }
 
 %--------------------------------枝の枝の枝番号
@@ -237,11 +250,11 @@
 \newcommand{\@theedaIIIjou}{\jkansuji\theedaIIIjou}
 \newcommand{\edaIIIjou}[2][]{\par\vskip 0.5\myzw%
   \ifblank{#1}{}{%
-    {\bizudgb（#1）}\par%
+    （#1）\par%
   }%
   \par\refstepcounter{edaIIIjou}%
   \noindent\hangafter=1\hangindent=1\myzw%
-  {\bizudgb 第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}の{\@theedaIIIjou}\hskip 1\myzw #2%
+  {\provisionfont第{\@thejou}条の{\@theedajou}の{\@theedaIIjou}の{\@theedaIIIjou}\hskip 1\myzw #2%
 }
 
 %------------------枝の枝の枝章
@@ -249,7 +262,8 @@
 % delete\setcounter{edaIIIsyou}{1}
 \newcommand{\@theedaIIIsyou}{\jkansuji\theedaIIIsyou}
 \newcommand{\edaIIIsyou}[1]{\refstepcounter{edaIIIsyou}\par
-\vskip1\myzw\noindent{\hspace{3\myzw}第{\@thesyou}章の{\@theedasyou}の{\@theedaIIsyou}の{\@theedaIIIsyou}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{3\myzw}第{\@thesyou}章の{\@theedasyou}の{\@theedaIIsyou}の{\@theedaIIIsyou}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝の枝節
@@ -257,7 +271,8 @@
 % delete\setcounter{edaIIIsetu}{1}
 \newcommand{\@theedaIIIsetu}{\jkansuji\theedaIIIsetu}
 \newcommand{\edaIIIsetu}[1]{\refstepcounter{edaIIIsetu}\par
-\vskip1\myzw\noindent{\hspace{4\myzw}第{\@thesetu}節の{\@theedaIIsetu}の{\@theedaIIIsetu}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{4\myzw}第{\@thesetu}節の{\@theedaIIsetu}の{\@theedaIIIsetu}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝の枝款
@@ -265,7 +280,8 @@
 % delete\setcounter{edaIIIkan}{1}
 \newcommand{\@theedaIIIkan}{\jkansuji\theedaIIIkan}
 \newcommand{\edaIIIkan}[1]{\refstepcounter{edaIIIkan}\par
-\vskip1\myzw\noindent{\hspace{5\myzw}第{\@thekan}款の{\@theedakan}の{\@theedaIIkan}の{\@theedaIIIkan}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{5\myzw}第{\@thekan}款の{\@theedakan}の{\@theedaIIkan}の{\@theedaIIIkan}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝の枝目
@@ -273,7 +289,8 @@
 % delete\setcounter{edaIIImoku}{1}
 \newcommand{\@theedaIIImoku}{\jkansuji\theedaIIImoku}
 \newcommand{\edaIIImoku}[1]{\refstepcounter{edaIIImoku}\par
-\vskip1\myzw\noindent{\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}の{\@theedaIImoku}の{\@theedaIIImoku}\hskip 1\myzw{#1}}
+\vskip1\myzw\noindent%
+{\provisionfont\hspace{6\myzw}第{\@themoku}目の{\@theedamoku}の{\@theedaIImoku}の{\@theedaIIImoku}}\hskip 1\myzw{#1}
 }
 
 %------------------枝の枝の枝号
@@ -282,7 +299,7 @@
 \newcommand{\edaIIIgou}[1]{%
 \par\refstepcounter{edaIIIgou}%
 \hangafter=1\hangindent=1\myzw%
-{\bizudgb {\@thegou}の{\@theedagou}の{\@theedaIIgou}の{\@theedaIIIgou}\hskip 1\myzw #1%
+{\@thegou}の{\@theedagou}の{\@theedaIIgou}の{\@theedaIIIgou}\hskip 1\myzw #1%
 }
 
 %--------------------------------sakujo
@@ -300,7 +317,7 @@
 
 %-------通常と太字の設定
 \newcommand{\sakujotext@plain}[1]{#1}
-\newcommand{\sakujotext@bold}[1]{{\bizudgb #1}}
+\newcommand{\sakujotext@bold}[1]{{\provisionfont #1}}
 
 %-------種類ごとの設定
 %---条
@@ -309,36 +326,36 @@
 \DeclareSakujoTextType{edaIIjou}{0.5\myzw}{0\myzw}{\sakujotext@bold}
 \DeclareSakujoTextType{edaIIIjou}{0.5\myzw}{0\myzw}{\sakujotext@bold}
 %---項
-\DeclareSakujoTextType{kou}{0\myzw}{0\myzw}{\sakujotext@bold}
-\DeclareSakujoTextType{edakou}{0\myzw}{0\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{kou}{0\myzw}{0\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{edakou}{0\myzw}{0\myzw}{\sakujotext@plain}
 %---号
-\DeclareSakujoTextType{gou}{0\myzw}{1\myzw}{\sakujotext@bold}
-\DeclareSakujoTextType{edagou}{0\myzw}{1\myzw}{\sakujotext@bold}
-\DeclareSakujoTextType{edaIIgou}{0\myzw}{1\myzw}{\sakujotext@bold}
-\DeclareSakujoTextType{edaIIIgou}{0\myzw}{1\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{gou}{0\myzw}{1\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{edagou}{0\myzw}{1\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{edaIIgou}{0\myzw}{1\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{edaIIIgou}{0\myzw}{1\myzw}{\sakujotext@plain}
 %---編
-\DeclareSakujoTextType{hen}{1\myzw}{2\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edahen}{1\myzw}{2\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{hen}{1\myzw}{2\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edahen}{1\myzw}{2\myzw}{\sakujotext@bold}
 %---章
-\DeclareSakujoTextType{syou}{1\myzw}{3\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edasyou}{1\myzw}{3\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIsyou}{1\myzw}{3\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIIsyou}{1\myzw}{3\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{syou}{1\myzw}{3\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edasyou}{1\myzw}{3\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIsyou}{1\myzw}{3\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIIsyou}{1\myzw}{3\myzw}{\sakujotext@bold}
 %---節
-\DeclareSakujoTextType{setu}{1\myzw}{4\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edasetu}{1\myzw}{4\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIsetu}{1\myzw}{4\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIIsetu}{1\myzw}{4\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{setu}{1\myzw}{4\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edasetu}{1\myzw}{4\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIsetu}{1\myzw}{4\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIIsetu}{1\myzw}{4\myzw}{\sakujotext@bold}
 %---款
-\DeclareSakujoTextType{kan}{1\myzw}{5\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edakan}{1\myzw}{5\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIkan}{1\myzw}{5\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIIkan}{1\myzw}{5\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{kan}{1\myzw}{5\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edakan}{1\myzw}{5\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIkan}{1\myzw}{5\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIIkan}{1\myzw}{5\myzw}{\sakujotext@bold}
 %---目
-\DeclareSakujoTextType{moku}{1\myzw}{6\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edamoku}{1\myzw}{6\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIImoku}{1\myzw}{6\myzw}{\sakujotext@plain}
-\DeclareSakujoTextType{edaIIImoku}{1\myzw}{6\myzw}{\sakujotext@plain}
+\DeclareSakujoTextType{moku}{1\myzw}{6\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edamoku}{1\myzw}{6\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIImoku}{1\myzw}{6\myzw}{\sakujotext@bold}
+\DeclareSakujoTextType{edaIIImoku}{1\myzw}{6\myzw}{\sakujotext@bold}
 
 %-------\sakujotextの定義
 \newcommand{\sakujotext}[3][]{%
